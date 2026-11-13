@@ -1,0 +1,36 @@
+// Color
+$black: #222;
+$white: #fff;
+$bc-1: #6b6b6b;
+$bc-2: #ebebeb;
+$mc: #9f28fb;
+$ac: #f47b82;
+$c-1: #18be64;
+$c-2: #569aff;
+$c-3: #ef6bab;
+$c-4: #ee933e;
+$c-5: #727272;
+
+// Font
+$ff-jp: "Noto Sans JP", sans-serif;
+
+// transition
+$duration: 220ms;
+$timing: ease;
+
+$breakpoints: (
+  sp: "not screen and (min-width: 576px)",
+  sm: "screen and (min-width:  576px)",
+  md: "screen and (min-width:  768px)",
+  lg: "screen and (min-width:  992px)",
+  xl: "screen and (min-width: 1200px)",
+  xxl: "screen and (min-width: 1400px)",
+) !default;
+
+$z-index: (
+  loading: calc(infinity),
+  modal: 9,
+  hamburgerBtn: 8,
+  nav: 7,
+  header: 6,
+) !default;

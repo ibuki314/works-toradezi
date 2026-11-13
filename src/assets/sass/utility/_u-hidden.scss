@@ -1,0 +1,21 @@
+@use "../global/" as g;
+
+.u-hidden-md {
+  @include g.mq(md) {
+    display: none;
+  }
+}
+
+.u-hidden-sm {
+  @include g.mq(sm) {
+    display: none;
+  }
+}
+
+.u-display-md {
+  display: none;
+
+  @include g.mq(md) {
+    display: block;
+  }
+}

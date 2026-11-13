@@ -1,0 +1,53 @@
+@use "../global/" as g;
+
+.p-outline {
+  padding-top: 87px;
+
+  @include g.mq(md) {
+    padding-top: 126px;
+  }
+}
+
+.p-outline__inner {
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 41px;
+
+  @include g.mq(sp) {
+    width: calc(312 / 390 * 100%);
+  }
+
+  @include g.mq(md) {
+    grid-template-columns: calc(361.5 / 850 * 100%) 1fr;
+    gap: calc(88 / 850 * 100%);
+  }
+}
+
+.p-outline__heading {
+  width: 190.398px;
+
+  @include g.mq(md) {
+    width: 100%;
+  }
+}
+
+.p-outline__body-wrap {
+  @include g.mq(md) {
+    margin-top: 241px;
+  }
+}
+
+.p-outline__body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: g.$bc-2;
+  line-height: 28px;
+
+  @include g.mq(xl) {
+    font-size: 18px;
+    line-height: 38px;
+    gap: 18px;
+  }
+}

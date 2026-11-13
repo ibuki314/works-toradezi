@@ -1,0 +1,339 @@
+@use "../global/" as g;
+
+.p-works {
+  padding: 92px 0 70px;
+
+  @include g.mq(xl) {
+    padding: 192px 0 144px;
+  }
+}
+
+.p-works__inner {
+  margin: 0 auto;
+
+  @include g.mq(xl) {
+    width: 100%;
+    max-width: 1000px;
+  }
+}
+
+.p-works__hgroup {
+  text-align: center;
+}
+
+.p-works__heading {
+  svg {
+    width: 105px;
+
+    @include g.mq(xl) {
+      width: 120px;
+    }
+  }
+}
+
+.p-works__subheading-wrap {
+  margin-top: 13px;
+
+  @include g.mq(xl) {
+    margin-top: 15px;
+  }
+}
+
+.p-works__subheading {
+  color: g.$bc-2;
+  font-size: 13px;
+
+  @include g.mq(xl) {
+    font-size: 15px;
+  }
+}
+
+.p-works__menu-wrap {
+  margin-top: 48px;
+
+  @include g.mq(xl) {
+    margin-top: 67px;
+  }
+}
+
+.p-works__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 881px;
+  margin: 0 auto;
+
+  @include g.mq(lg) {
+    gap: 25px;
+  }
+}
+
+.p-works__filter-open {
+  margin: 0 auto;
+  width: 250px;
+  height: 48px;
+  padding-left: 66px;
+  border-radius: 99px;
+  color: g.$bc-2;
+  font-size: 16px;
+  background: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 14 11" xmlns="http://www.w3.org/2000/svg"><path d="m1 1.5 6 7 6-7" stroke="%23ebebeb" stroke-width="2" /></svg>') g.$mc no-repeat 211px 50% / 14px auto;
+
+  @include g.mq(lg) {
+    display: none;
+  }
+}
+
+.p-works__filter {
+  position: fixed;
+  inset: 0 0 auto 0;
+  background: #575656;
+  z-index: map-get(g.$z-index, modal);
+  overflow-y: scroll;
+  height: 0;
+  visibility: hidden;
+  transition: height g.$duration g.$timing, visibility g.$duration g.$timing;
+  color: g.$bc-2;
+  font-size: 16px;
+
+  &[aria-hidden="false"] {
+    height: 100%;
+    visibility: visible;
+  }
+
+  @include g.mq(lg) {
+    position: static;
+    z-index: 0;
+    background: transparent;
+    height: auto;
+    visibility: visible;
+  }
+}
+
+.p-works__filter-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 88px;
+  height: 75px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 1px;
+    background: g.$bc-2;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  @include g.mq(lg) {
+    display: none;
+  }
+}
+
+.p-works__filter-list {
+  padding: 68px 0;
+
+  @include g.mq(lg) {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px 20px;
+  }
+
+  label {
+    height: 72px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    @include g.hover {
+      input:not(:checked) + span {
+        opacity: 0.7;
+      }
+    }
+
+    @include g.mq(lg) {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:not(:checked) + span {
+      border-color: g.$bc-2;
+      background: transparent;
+    }
+  }
+
+  span {
+    padding: 0 40px;
+    display: inline-flex;
+    align-items: center;
+    border-width: 1px;
+    border-radius: 99px;
+    height: 40px;
+    transition: opacity g.$duration g.$timing;
+  }
+}
+
+.p-works__filter-list--2 {
+  margin: 0 auto;
+  max-width: 310px;
+  padding: 84px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+
+  @include g.mq(lg) {
+    padding: 0;
+    gap: 25px 20px;
+    max-width: 100%;
+  }
+
+  label {
+    @include g.hover {
+      input:not(:checked) + span {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked + span {
+      border-color: g.$c-5;
+      background: g.$c-5;
+    }
+  }
+
+  span {
+    padding: 0 25px;
+    border: 1px solid g.$bc-2;
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 99px;
+    transition: opacity g.$duration g.$timing;
+  }
+}
+
+.p-works__filter-btn--1 span {
+  background: g.$mc;
+  border-color: g.$mc;
+}
+
+.p-works__filter-btn--2 span {
+  background: g.$c-2;
+  border-color: g.$c-2;
+}
+
+.p-works__filter-btn--3 span {
+  background: g.$c-3;
+  border-color: g.$c-3;
+}
+
+.p-works__filter-btn--4 span {
+  background: g.$c-1;
+  border-color: g.$c-1;
+}
+
+.p-works__filter-btn--5 span {
+  background: g.$c-4;
+  border-color: g.$c-4;
+}
+
+.p-works__search-wrap {
+  display: none;
+  margin-top: 67px;
+  text-align: center;
+
+  @include g.mq(lg) {
+    display: block;
+  }
+}
+
+.p-works__search {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 40px;
+  height: 42px;
+  border-radius: 99px;
+  background: g.$mc;
+  color: g.$bc-2;
+  font-size: 16px;
+
+  @include g.hover-transition {
+    transition: opacity g.$duration g.$timing;
+  }
+
+  @include g.hover-active {
+    opacity: 0.7;
+  }
+
+  svg {
+    width: 14px;
+  }
+}
+
+.p-works__cards-wrap {
+  margin-top: 56px;
+
+  @include g.mq(xl) {
+    margin-top: 96px;
+  }
+}
+
+.p-works__cards {
+  display: grid;
+  justify-content: center;
+  overflow: hidden;
+  column-gap: 32px;
+
+  & > .p-card {
+    margin-bottom: 32px;
+  }
+}
+
+.p-works__btn-wrap {
+  margin-top: 12px;
+  text-align: center;
+
+  @include g.mq(xl) {
+    margin-top: 113px;
+  }
+}
+
+.p-works__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 248px;
+  height: 50px;
+  border-radius: 99px;
+  border: 1px solid g.$bc-2;
+  background: g.$black;
+  color: g.$bc-2;
+
+  @include g.hover-transition {
+    transition: opacity g.$duration g.$timing;
+  }
+
+  @include g.hover-active {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,21 @@
+@use "../global/" as g;
+
+.u-tag--video {
+  background: g.$c-1;
+}
+
+.u-tag--design {
+  background: g.$c-2;
+}
+
+.u-tag--coding {
+  background: g.$c-3;
+}
+
+.u-tag--writing {
+  background: g.$c-4;
+}
+
+.u-tag--others {
+  background: g.$c-5;
+}

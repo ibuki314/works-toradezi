@@ -1,0 +1,73 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border: 0 solid;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+:focus,
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: -2px;
+}
+
+html {
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+main {
+  display: block;
+}
+
+img,
+svg {
+  width: 100%;
+  height: auto;
+}
+
+menu,
+ul {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+small {
+  font-size: inherit;
+}
+
+button,
+input {
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  background: transparent;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit;
+}
+
+input,
+label,
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}

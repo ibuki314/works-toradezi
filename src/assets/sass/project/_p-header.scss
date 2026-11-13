@@ -1,0 +1,256 @@
+@use "../global/" as g;
+
+.p-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 75px;
+  z-index: map-get(g.$z-index, header);
+  transition: background-color g.$duration g.$timing;
+
+  @include g.mq(lg) {
+    height: 80px;
+  }
+
+  &.is-change {
+    background: rgba(100, 100, 100, 0.7);
+
+    .p-header__logo svg {
+      fill: g.$bc-2;
+    }
+
+    .p-header__toggle {
+      &::before,
+      span,
+      &::after {
+        background: g.$bc-2;
+      }
+    }
+
+    .p-header__nav-link {
+      @include g.mq(lg) {
+        color: g.$bc-2;
+      }
+
+      &::after {
+        background: g.$bc-2;
+      }
+    }
+
+    .p-header__nav-link--4 {
+      @include g.mq(lg) {
+        color: g.$black;
+        background: g.$bc-2;
+      }
+    }
+  }
+}
+
+.p-header__inner {
+  margin: 0 auto;
+  display: grid;
+  grid: 75px/1fr 88px;
+  max-width: 1016px;
+
+  @include g.mq(lg) {
+    width: calc(36.904761904762% + 484.57142857143px);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.p-header__logo {
+  padding: 0 20px;
+  width: 72px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+
+  @include g.mq(lg) {
+    padding: 0 8px;
+    width: 241px;
+    height: 38px;
+    flex: none;
+  }
+
+  g {
+    transition: fill g.$duration g.$timing;
+  }
+}
+
+.p-header__logo-svg--sp {
+  @include g.mq(lg) {
+    display: none;
+  }
+}
+
+.p-header__logo-svg--pc {
+  display: none;
+
+  @include g.mq(lg) {
+    display: block;
+  }
+}
+
+.p-header__nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  background: #575656;
+  z-index: map-get(g.$z-index, nav);
+  overflow-y: scroll;
+  height: 0;
+  visibility: hidden;
+  transition: height g.$duration g.$timing, visibility g.$duration g.$timing;
+
+  &[aria-hidden="false"] {
+    height: 100%;
+    visibility: visible;
+  }
+
+  @include g.mq(lg) {
+    position: static;
+    width: 100%;
+    max-width: 594px;
+    background: transparent;
+    height: auto;
+    visibility: visible;
+  }
+}
+
+.p-header__nav-list {
+  padding: 72px 0 84px;
+
+  @include g.mq(lg) {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.p-header__nav-item--last {
+  @include g.mq(lg) {
+    display: none;
+  }
+}
+
+.p-header__nav-link,
+.p-header__nav-link--4 {
+  padding-left: 48px;
+  display: grid;
+  align-items: center;
+  height: 47px;
+  color: g.$bc-2;
+
+  @include g.mq(lg) {
+    padding: 0 8px;
+    height: 38px;
+    transition: color g.$duration g.$timing, background-color g.$duration g.$timing;
+  }
+}
+
+.p-header__nav-link {
+  @include g.mq(lg) {
+    color: g.$black;
+    position: relative;
+
+    @include g.hover {
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background: g.$black;
+    transform: scale(0, 1);
+    transition: transform g.$duration g.$timing;
+  }
+}
+
+.p-header__nav-link--4 {
+  @include g.mq(lg) {
+    place-items: center;
+    margin: 0 8px 0 10px;
+    width: 188px;
+    border-radius: 99px;
+    background: g.$black;
+    color: g.$bc-2;
+    transition: color g.$duration g.$timing, background-color g.$duration g.$timing, opacity g.$duration g.$timing;
+
+    @include g.hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.p-header__toggle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  z-index: map-get(g.$z-index, hamburgerBtn);
+  transition: opacity g.$duration g.$timing;
+
+  @include g.hover {
+    opacity: 0.7;
+  }
+
+  @include g.mq(lg) {
+    display: none;
+  }
+
+  &::before,
+  &::after,
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 1px;
+    background: g.$black;
+  }
+
+  &::before {
+    content: "";
+    transform: translate(-50%, calc(-50% + 12.5px));
+  }
+
+  span {
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    content: "";
+    transform: translate(-50%, calc(-50% - 12.5px));
+  }
+
+  &[aria-expanded="true"] {
+    &::before,
+    span,
+    &::after {
+      background: g.$bc-2;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    span {
+      display: none;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

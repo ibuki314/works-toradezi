@@ -1,0 +1,58 @@
+@use "../global/" as g;
+
+.p-fv {
+  padding-top: 11px;
+
+  @include g.mq(xl) {
+    padding-top: 83px;
+  }
+}
+
+.p-fv__heading {
+  color: g.$white;
+  font-size: 14px;
+  font-weight: 900;
+
+  @include g.mq(xl) {
+    font-size: 26px;
+  }
+}
+
+.p-fv__title-wrap {
+  margin-top: 18px;
+
+  @include g.mq(xl) {
+    margin-top: 28px;
+  }
+}
+
+.p-fv__title {
+  width: 292px;
+
+  @include g.mq(xl) {
+    width: 613px;
+  }
+
+  svg {
+    fill: g.$white;
+  }
+}
+
+.p-fv__desc-wrap {
+  margin-top: 22px;
+
+  @include g.mq(xl) {
+    margin-top: 49px;
+  }
+}
+
+.p-fv__desc {
+  color: g.$white;
+  font-size: 12px;
+  line-height: 165%;
+
+  @include g.mq(xl) {
+    font-size: 16px;
+    line-height: 1;
+  }
+}

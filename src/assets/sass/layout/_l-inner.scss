@@ -1,0 +1,7 @@
+@use "../global" as g;
+
+.l-inner {
+  margin: 0 auto;
+  width: calc(100% * 13 / 21 + calc(350px - 1690px / 7));
+  max-width: 1000px;
+}

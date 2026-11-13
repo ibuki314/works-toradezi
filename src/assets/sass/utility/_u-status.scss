@@ -1,0 +1,21 @@
+@use "../global/" as g;
+
+.u-status--video {
+  color: g.$c-1;
+}
+
+.u-status--design {
+  color: g.$c-2;
+}
+
+.u-status--coding {
+  color: g.$c-3;
+}
+
+.u-status--writing {
+  color: g.$c-4;
+}
+
+.u-status--others {
+  color: g.$c-5;
+}

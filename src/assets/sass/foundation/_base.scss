@@ -1,0 +1,18 @@
+@use "../global" as g;
+
+body {
+  color: g.$black;
+  font-family: g.$ff-jp;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 333px, g.$black 410px), url(../img/bg-sp.avif) no-repeat 0 0 / 100% 410px;
+
+  @include g.mq(xl) {
+    background: linear-gradient(180deg, transparent 490px, g.$black 665px), url(../img/bg.avif) no-repeat 0 0 / 100% 665px;
+  }
+
+  &.is-no-scroll {
+    overflow: hidden;
+  }
+}

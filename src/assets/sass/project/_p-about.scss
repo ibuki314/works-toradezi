@@ -1,0 +1,292 @@
+@use "../global/" as g;
+
+.p-about {
+  padding: 54px 0 72px;
+  background: url(../img/about_bg.webp) no-repeat 50% / cover;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  @include g.mq(md) {
+    padding: 88px 0 146px;
+  }
+}
+
+.p-about__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.p-about__bg-shape--1,
+.p-about__bg-shape--2,
+.p-about__bg-shape--3,
+.p-about__bg-shape--4,
+.p-about__bg-shape--5 {
+  position: absolute;
+  fill: #c5c5c540;
+}
+
+.p-about__bg-shape--1 {
+  width: 207.182px;
+  top: 31px;
+  right: calc(20 / 390 * 100%);
+
+  @include g.mq(lg) {
+    width: 710px;
+    top: 50px;
+    right: calc(50% - 720px + 123px);
+  }
+}
+
+.p-about__bg-shape--2 {
+  width: 149.404px;
+  top: 293px;
+  right: calc(50 / 390 * 100%);
+
+  @include g.mq(lg) {
+    top: 870px;
+    right: calc(50% - 502px);
+    width: 512px;
+  }
+}
+
+.p-about__bg-shape--3 {
+  width: 207.182px;
+  top: 416px;
+  left: calc(20 / 390 * 100%);
+
+  @include g.mq(lg) {
+    width: 380px;
+    top: 541px;
+    left: calc(50% - 720px + 122px);
+  }
+}
+
+.p-about__bg-shape--4 {
+  width: 110.886px;
+  top: 197px;
+  left: calc(20 / 390 * 100%);
+
+  @include g.mq(lg) {
+    display: none;
+  }
+}
+
+.p-about__bg-shape--5 {
+  width: 110.886px;
+  top: 582px;
+  right: calc(20 / 390 * 100%);
+
+  @include g.mq(lg) {
+    display: none;
+  }
+}
+
+.p-about__note {
+  font-size: 14px;
+  line-height: 23px;
+
+  @include g.mq(md) {
+    font-size: 15px;
+    line-height: 1;
+  }
+}
+
+.p-about__heading-wrap {
+  margin-top: 11px;
+
+  @include g.mq(md) {
+    margin-top: 26px;
+  }
+}
+
+.p-about__heading {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+  align-items: end;
+
+  @include g.mq(md) {
+    gap: 13px;
+  }
+}
+
+.p-about__heading-svg {
+  width: 195px;
+
+  @include g.mq(md) {
+    width: 315px;
+  }
+}
+
+.p-about__heading-text {
+  font-size: 16px;
+  font-weight: 900;
+
+  @include g.mq(md) {
+    font-size: 18px;
+  }
+}
+
+.p-about__subheading-wrap {
+  margin-top: 26px;
+
+  @include g.mq(md) {
+    margin-top: 26px;
+  }
+}
+
+.p-about__subheading {
+  line-height: 25px;
+
+  @include g.mq(md) {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+.p-about__list-wrap {
+  margin-top: 39px;
+
+  @include g.mq(md) {
+    margin-top: 46px;
+  }
+}
+
+.p-about__list {
+  display: grid;
+  justify-content: center;
+  grid: repeat(3, 66px) / 248px;
+  gap: 16px;
+
+  @include g.mq(md) {
+    justify-content: center;
+    grid: 99px / repeat(3, calc(215 / 768 * 100%));
+  }
+
+  @include g.mq(lg) {
+    justify-content: center;
+    grid: 99px / repeat(3, 260px);
+    gap: calc(35 / 1440 * 100%);
+  }
+
+  @include g.mq(xxl) {
+    gap: 35px;
+  }
+}
+
+.p-about__item {
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: g.$white;
+  font-size: 13px;
+  line-height: 21px;
+
+  @include g.mq(xl) {
+    font-size: 15px;
+    line-height: 25px;
+  }
+}
+
+.p-about__directory-wrap {
+  display: none;
+  margin-top: 80px;
+
+  @include g.mq(md) {
+    display: block;
+  }
+}
+
+.p-about__directory {
+  text-align-last: left;
+  margin: 0 auto;
+  width: 650px;
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  gap: 35px;
+}
+
+.p-about__directory-caption {
+  padding-top: 18px;
+  border-top: 1px solid g.$black;
+}
+
+.p-about__directory-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.p-about__directory-section {
+  padding-top: 10px;
+  border-top: 1px solid g.$bc-1;
+  display: grid;
+  grid-template-columns: 172px 1fr;
+}
+
+.p-about__directory-heading {
+  padding: 8px 0 0 9px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: g.$mc;
+    border-radius: 50%;
+  }
+}
+
+.p-about__directory-link {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 19px;
+  height: 31px;
+  font-weight: 400;
+  position: relative;
+  transition: opacity g.$duration g.$timing;
+
+  @include g.hover {
+    opacity: 0.7;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 1px;
+    background: g.$mc;
+  }
+}
+
+.p-about__btn-wrap {
+  margin-top: 56px;
+
+  @include g.mq(md) {
+    margin-top: 72px;
+  }
+}
+
+.p-about__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 248px;
+  height: 50px;
+  border-radius: 30px;
+  background: g.$mc;
+  color: g.$bc-2;
+  transition: opacity g.$duration g.$timing;
+
+  @include g.hover {
+    opacity: 0.7;
+  }
+}
